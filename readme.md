@@ -54,7 +54,7 @@ Deployment
 		- Role must include next AWS managed policies:
 			- AWSLambdaBasicExecutionRole (Gives write permission to CloudWatch logs);
 			- AWSLambdaRole (Gives invoke permissions to other Lambda function).
-		- Import /gatekeeper/index.js;
+		- Import [/gatekeeper/index.js](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/gatekeeper/);
 		- (_Optional_) Add environmental variables for CHAT1 and USER1 parameters.
 	- Function **Speech**:
 		- Role must include next AWS managed policies:
@@ -62,7 +62,7 @@ Deployment
 			- AWSLambdaBasicExecutionRole (Gives write permissions to CloudWatch logs);
 			- AWSLambdaRole (Gives invoke permissions to other Lambda function);
 			- AmazonPollyFullAccess (Gives full permissions to Polly service).
-		- Import /speech/index.js;
+		- Import [/speech/index.js](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/speech/);
 		- Add environmental variable for BUCKET_NAME pointing to your S3 bucket.
 	- Function **DynamoDB**:
 		- Role must include next AWS managed policies:
@@ -71,17 +71,17 @@ Deployment
 		- Role must include Managed policy with next permissions:
 			- Allow dynamodb:Query;
 			- Allow dynamodb:PutItem.
-		- Import /dynamodb/index.js;
+		- Import [/dynamodb/index.js](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/);
 		- Add environmental variable for DB pointing to your DynamoDB table.
 	- Function **Text**:
 		- Role must include next AWS managed policies:
 			- AWSLambdaBasicExecutionRole (Gives write permission to CloudWatch logs);
 			- AWSLambdaRole (Gives invoke permissions to other Lambda function).
-		- Import /text/index.js.
+		- Import [/text/index.js](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/text/).
 	- Function **Send**:
 		- Role must include next AWS managed policies:
 			- AWSLambdaBasicExecutionRole (Gives write permission to CloudWatch logs);
-		- Import /send/index.js;
+		- Import [/send/index.js](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/send/);
 		- Add environmental variable for BOT_API_KEY.
 4. Create API Gateway:
 	- Actions -> Create method POST;
