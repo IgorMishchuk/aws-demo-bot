@@ -14,9 +14,9 @@ It uses next AWS services:
 6. [Cloudwatch](https://aws.amazon.com/cloudwatch/).
 
 At the moment, it has three functions:  
-1. Send received text to Polly and have it converted to speech. [Speech function](https://github.com/IgorMishchuk/aws-demo-bot/speech/);
-2. Calculate time difference between specific message and latest entry in DB [DynamoDB function](https://github.com/IgorMishchuk/aws-demo-bot/dynamodb/);
-3. Process text if none of the above features were requested. [Text function](https://github.com/IgorMishchuk/aws-demo-bot/text/).
+1. Send received text to Polly and have it converted to speech. [Speech function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/speech/);
+2. Calculate time difference between specific message and latest entry in DB [DynamoDB function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/);
+3. Process text if none of the above features were requested. [Text function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/text/).
 
 Prerequisites
 -------------
@@ -27,14 +27,14 @@ What you need for this to work:
 General overview
 ------------------
 
-!(overview)[https://s3.eu-west-3.amazonaws.com/awsdemobucket11/images/overview.jpg]
+![overview](https://s3.eu-west-3.amazonaws.com/awsdemobucket11/images/overview.jpg)
 1. User sends message to Telegram chat;
 2. JSON message is delivered through webhook to API gateway invoke URL;
-3. Message is processed by **Gatekeeper** Lambda function. Decision is made which Lambda function will be invoked next:
-	- **Speech** function if conversion from text to speech is requested;
-	- **DynamoDB** function if time difference calculation is requested;
-	- **Text** function if simple text reply is requested;
-	- **Send** function if Speech or DynamoDB function were requeted by unauthorized user.
+3. Message is processed by [**Gatekeeper**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/gatekeeper/) Lambda function. Decision is made which Lambda function will be invoked next:
+	- [**Speech**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/speech/) function if conversion from text to speech is requested;
+	- [**DynamoDB**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/) function if time difference calculation is requested;
+	- [**Text**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/text/) function if simple text reply is requested;
+	- [**Send**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/send/) function if Speech or DynamoDB function were requeted by unauthorized user.
 4. After message processing by any of specialized function it is sent to **Send** function;
 5. **Send** function creates URL post request to Telegram API and sends the message.
 
