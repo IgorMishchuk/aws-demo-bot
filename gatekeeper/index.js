@@ -23,7 +23,7 @@ exports.handler = function(event, context) {
         }
         else { //Message came from unauthorized chat
             event['reply'] = 'This chat is not authorized for Polly usage. \
-                                \nContact @M_Z_LAIR for authorization.';
+                                \nContact %AUTHOR% for authorization.';
             var sender_module_params = {
                 FunctionName : "Send",
                 InvocationType: "Event",
@@ -51,7 +51,7 @@ exports.handler = function(event, context) {
             });
         }
         else {  //If message came from non-authorized user
-            event['reply'] = 'You do not have permissions to interact with this function. Contact @M_Z_LAIR for details.';
+            event['reply'] = 'You do not have permissions to interact with this function. Contact %AUTHOR% for details.';
             var sender_module_params = {
                 FunctionName : "Send",
                 InvocationType: "Event",
