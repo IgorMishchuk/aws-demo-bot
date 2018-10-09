@@ -15,13 +15,13 @@ It uses next AWS services:
 
 At the moment, it has three functions:  
 1. Send received text to Polly and have it converted to speech. [Speech function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/speech/);
-2. Calculate time difference between specific message and latest entry in DB [DynamoDB function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/);
+2. Calculate time difference between specific message and latest entry in DB. [DynamoDB function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/);
 3. Process text if none of the above features were requested. [Text function](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/text/).
 
 Prerequisites
 -------------
 What you need for this to work:
-1. Telegram bot. Provided Bot API key will be used in BOT_API_KEY environmental variable [How to create Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot).
+1. Telegram bot. Provided Bot API key will be used in BOT_API_KEY environmental variable. [How to create Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot).
 2. [AWS account](https://aws.amazon.com/). Free tier is OK, but make sure that your AWS usage stays in Free tier [limits](https://aws.amazon.com/free/).
 
 General overview
@@ -35,16 +35,16 @@ General overview
 	- [**DynamoDB**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/dynamodb/) function if time difference calculation is requested;
 	- [**Text**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/text/) function if simple text reply is requested;
 	- [**Send**](https://github.com/IgorMishchuk/aws-demo-bot/tree/master/send/) function if Speech or DynamoDB function were requeted by unauthorized user.
-4. After message processing by any of specialized function it is sent to **Send** function;
+4. After message processing by any of specialized functions it is sent to **Send** function;
 5. **Send** function creates URL post request to Telegram API and sends the message.
 
 Deployment
 -----------
-1. Create S3 bucket which will be used by your Lambda function. Bucket name will be specified as Value for BUCKET_NAME environmental variable.
+1. Create S3 bucket which will be used by your **Speech** Lambda function. Bucket name will be specified as Value for BUCKET_NAME environmental variable.
 2. Create DynamoDB table:
 	- Table name will be specified as Value for DB environmental variable;
 	- Primary key will contain name of person for whom we are calculating time difference. Key name will be used in Query and Put operations. In this example key name is "Dname". Set type to String;
-	- Sort key will contain date of message from target person. In this example key name is "Date". Set type to String.
+	- Sort key will contain date of message from target person. In this example, key name is "Date". Set type to String.
 	- Untick "Use default settings";
 	- Untick Autoscaling for Read and Write capacity units;
 	- Set provisioned capacity to 5 for Read and Write capacity units. If you need more, please, check this [guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html) for provisioned throughput calculation. Remember that DynamoDB is subject to [free tier](https://aws.amazon.com/dynamodb/pricing/) for 25 RCU/WCU.
