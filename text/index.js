@@ -19,7 +19,12 @@ exports.handler = function (event, context) {
         case '/help':
         case 'help':
         case '/start':
-            reply = 'Bot features:\
+            reply = 'Hi.\
+			\n\
+			\nThis is a serverless telegram bot, written during self education on AWS associate level courses.\
+			\nSource code can be viewed [here](https://github.com/IgorMishchuk/aws-demo-bot).\
+			\n\
+			\nBot features:\
             \n 1: Speech synthesis from text.\
             \nCommand syntax: "/voice *language* Text".\
             \nAccepted values for language:\
