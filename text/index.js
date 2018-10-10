@@ -45,7 +45,7 @@ exports.handler = function (event, context) {
             break;
         case '/trigger1':
         case 'trigger1':
-        	reply = 'trigger1 ' + trigger1[Math.floor(Math.random() * trigger1.length)]; //Randomly select which reply wtill be given from available variants
+        	reply = 'trigger1 ' + trigger1[Math.floor(Math.random() * trigger1.length)]; //Randomly select which reply will be given from available variants
         	break;
         case '/trigger2':
         case 'trigger2':
