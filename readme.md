@@ -7,7 +7,7 @@ This serverless telegram bot was written as a part of self education during AWS 
 
 It uses next AWS services:
 1. [API Gateway](https://aws.amazon.com/api-gateway);
-2. [Lambda](https://aws.amazon.com/lambda/) (node.js 6.10);
+2. [Lambda](https://aws.amazon.com/lambda/) (node.js 8.10);
 3. [S3](https://aws.amazon.com/s3/);
 4. [Polly](https://aws.amazon.com/polly/);
 5. [DynamoDB](https://aws.amazon.com/dynamodb/);
