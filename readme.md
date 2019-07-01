@@ -49,7 +49,7 @@ Deployment
 	- Untick Autoscaling for Read and Write capacity units;
 	- Set provisioned capacity to 5 for Read and Write capacity units. If you need more, please, check this [guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html) for provisioned throughput calculation. Remember that DynamoDB is subject to [free tier](https://aws.amazon.com/dynamodb/pricing/) for 25 RCU/WCU.
 3. Create Lambda functions:
-	- Runtime: Node.js 6.10;
+	- Runtime: Node.js 8.10;
 	- Function **Gatekeeper**:
 		- Role must include next AWS managed policies:
 			- AWSLambdaBasicExecutionRole (Gives write permission to CloudWatch logs);
